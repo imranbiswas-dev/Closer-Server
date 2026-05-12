@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 const { connectDB } = require("./config/db");
 
 const postsRoutes = require("./routes/postsRoutes");
+const usersRouter = require("./routes/usersRoutes");
 
 // === Global middleware === \\
 app.use(cors());
@@ -19,6 +20,7 @@ connectDB();
 
 // === API Routes ===
 app.use("/post", postsRoutes);
+app.use("/user", usersRouter);
 
 // === default route === \\
 app.get("/", (req, res) => {
