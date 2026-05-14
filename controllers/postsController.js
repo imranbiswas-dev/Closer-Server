@@ -18,7 +18,7 @@ const createPost = async (req, res) => {
 // === Get all post ===
 const getAllPost = async (req, res) => {
   try {
-    const result = await postCollection.find().toArray();
+    const result = await postCollection.find().sort({ _id: -1 }).toArray();
     res.send(result);
   } catch (error) {
     res.status(500).send({

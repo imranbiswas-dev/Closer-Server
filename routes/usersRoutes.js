@@ -1,6 +1,11 @@
 const express = require("express");
 
-const { createUser, getUser } = require("../controllers/usersController");
+const {
+  createUser,
+  getUser,
+  getSingleUser,
+   updateUser,
+} = require("../controllers/usersController");
 
 const router = express.Router();
 
@@ -9,5 +14,11 @@ router.post("/", createUser);
 
 // === get user ===
 router.get("/", getUser);
+
+// === get single user ===
+router.get("/:email", getSingleUser);
+
+// === update user ===
+router.put("/:id", updateUser);
 
 module.exports = router;
